@@ -1,7 +1,7 @@
+# main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-#from app.routers import issues
-
+from app.routers import issues
 
 app = FastAPI(
     title="IssueWiz",
@@ -15,7 +15,6 @@ origins = [
     "https://your-deployed-client-url.com",  # Add your deployed frontend URL here
 ]
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,  # List of allowed origins
@@ -25,8 +24,7 @@ app.add_middleware(
 )
 
 # Include routers
-#app.include_router(issues.router, prefix="/api/issues", tags=["Issues"])
-
+app.include_router(issues.router, prefix="/api/issues", tags=["Issues"])
 
 @app.get("/")
 def read_root():
