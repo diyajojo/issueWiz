@@ -12,7 +12,7 @@ app = FastAPI(
 # CORS setup
 origins = [
     "http://localhost:3000",  # Allow local frontend
-    "https://your-deployed-client-url.com",  # Add your deployed frontend URL here
+    "https://issue-wiz.vercel.app",  # Add your deployed frontend URL here
 ]
 
 app.add_middleware(
